@@ -1,0 +1,106 @@
+﻿<Window x:Class="SchoolBus_WPF.ClassPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolBus_WPF"
+      mc:Ignorable="d" 
+              WindowStartupLocation="CenterScreen"
+        Title="ClassPage" Height="550" Width="1000">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Image Source="..\Images\SchoolBus_Image.png" Width="130" Height="80"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Button Name="create_ride_btn" Click="create_ride_btn_Click" Content="Create Ride" Width="130" Height="30" Background="Transparent" Foreground="Black" BorderBrush="{StaticResource SchoolBusYellowBrush}"/>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Button Name="rides_btn" Click="rides_btn_Click" Content="Rides" Width="130" Height="30" Background="Transparent" Foreground="Black" BorderBrush="{StaticResource SchoolBusYellowBrush}"/>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Button Name="class_btn" Click="class_btn_Click" Content="Class" Width="130" Height="30" Background="Transparent" Foreground="Black" BorderBrush="{StaticResource SchoolBusYellowBrush}"/>
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Button Name="student_btn" Click="student_btn_Click" Content="Student" Width="130" Height="30" Background="Transparent" Foreground="Black" BorderBrush="{StaticResource SchoolBusYellowBrush}"/>
+            </Grid>
+
+            <Grid Grid.Row="5">
+                <Button Name="parent_btn" Click="parent_btn_Click" Content="Parent" Width="130" Height="30" Background="Transparent" Foreground="Black" BorderBrush="{StaticResource SchoolBusYellowBrush}"/>
+            </Grid>
+
+            <Grid Grid.Row="6">
+                <Button Name="driver_btn" Click="driver_btn_Click" Content="Driver" Width="130" Height="30" Background="Transparent" Foreground="Black" BorderBrush="{StaticResource SchoolBusYellowBrush}"/>
+            </Grid>
+
+            <Grid Grid.Row="7">
+                <Button Name="car_btn" Click="car_btn_Click" Content="Car" Width="130" Height="30" Background="Transparent" Foreground="Black" BorderBrush="{StaticResource SchoolBusYellowBrush}"/>
+            </Grid>
+
+            <Grid Grid.Row="8">
+                <Button Name="logout_btn" Click="logout_btn_Click" Content="Log out" Width="130" Height="30" Background="Transparent" Foreground="Black" BorderBrush="{StaticResource SchoolBusYellowBrush}"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Label Content="ClassName" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Button Name="add_btn" Click="add_btn_Click" Background="Transparent" BorderBrush="Transparent">
+                        <Image Source="..\Images\add_icon.png"/>
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ListView Name="listview2" ItemsSource="{Binding Path=MyData}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=ClassName}" FontSize="17" Width="400" Height="20" Margin="150,0,0,0"/>
+                                <Button Name="remove_btn" Click="removebtn_Click" Width="100" Height="20" HorizontalAlignment="Left" Margin="15,0,0,0">
+                                    <Image Source="..\Images\Recycle-Bin-icon-Graphics-21827809-1-1-580x386.jpg"/>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
